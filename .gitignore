@@ -1,0 +1,10 @@
+# Editors
+.idea/*
+.vscode/*
+
+# Node
+node_modules/
+package-lock.json
+
+# Other
+.env

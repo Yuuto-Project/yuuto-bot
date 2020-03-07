@@ -1,0 +1,15 @@
+{
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "no-console": "off",
+    "no-dynamic-require": "off",
+    "no-restricted-syntax": "off",
+    "import/prefer-default-export": "off",
+    "prefer-const": 1
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  }
+}
