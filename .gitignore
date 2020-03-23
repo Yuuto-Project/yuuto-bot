@@ -8,3 +8,6 @@ package-lock.json
 
 # Other
 .env
+
+# Yarn
+yarn.lock
