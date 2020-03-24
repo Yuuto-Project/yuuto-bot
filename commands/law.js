@@ -1,10 +1,12 @@
-import { MessageEmbed } from "discord.js";
+import Discord from "discord.js";
+
+const { MessageEmbed } = Discord;
 
 export const command = {
   name: "law",
   category: "info",
   description: "Shows the buddy law.",
-  run: async (client, message) => {
+  run: (client, message) => {
     const embed = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle("The Buddy Law")
