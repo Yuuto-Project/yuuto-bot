@@ -1,6 +1,10 @@
 {
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "rules": {
+    "import/extensions": ["error", {
+      "json": "always"
+    }],
+    "class-methods-use-this": ["error", { "exceptMethods": ["run"] }],
     "no-console": "off",
     "no-dynamic-require": "off",
     "no-restricted-syntax": "off",

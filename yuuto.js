@@ -11,7 +11,7 @@ yuuto.commands = new Collection();
 yuuto.aliases = new Collection();
 yuuto.cooldowns = new Collection();
 
-yuuto.once("ready", async () => {
+(async () => {
   // Load command files
   const commandsFiles = readdirSync("./commands/").filter(file =>
     file.endsWith(".js")
@@ -19,13 +19,16 @@ yuuto.once("ready", async () => {
   // Load commands
   for (const file of commandsFiles) {
     // eslint-disable-next-line no-await-in-loop
-    const { command } = await import(`./commands/${file}`);
+    const { default: CommandConstructor } = await import(`./commands/${file}`);
+    const command = new CommandConstructor();
+
     yuuto.commands.set(command.name, command);
 
-    if (command.aliases && Array.isArray(command.aliases))
+    if (command.aliases && Array.isArray(command.aliases)) {
       command.aliases.forEach(alias => yuuto.aliases.set(alias, command.name));
+    }
   }
-});
+})().catch(console.error);
 
 // Load the prefix | cannot import from json without node flag at the time of 13.9.0
 const { prefix } = JSON.parse(readFileSync("./config.json", "utf-8")) || "!";
@@ -36,7 +39,7 @@ yuuto.once("ready", () => {
 
   yuuto.user.setPresence({
     status: "online",
-    game: {
+    activity: {
       name: "volleyball",
       type: "PLAYING"
     }
@@ -77,7 +80,7 @@ yuuto.on("message", async message => {
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
-      await message.reply(
+      message.reply(
         `please wait ${timeLeft.toFixed(
           1
         )} more second(s) before reusing the \`{command.name}\` command.`
@@ -93,12 +96,12 @@ yuuto.on("message", async message => {
 
   // Execute the command, and catch errors.
   try {
-    command.run(yuuto, message, args);
+    await command.run(yuuto, message, args);
   } catch (error) {
     console.error(error);
-    await message.reply("there was an error trying to execute that command!");
+    message.reply("there was an error trying to execute that command!");
   }
 });
 
 // login to Discord using the app token
-yuuto.login(process.env.TOKEN);
+yuuto.login(process.env.TOKEN).catch(console.error);
