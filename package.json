@@ -4,10 +4,13 @@
   "license": "GPL-3.0",
   "version": "1.0.0",
   "repository": "github:iamdeja/yuuto-bot",
+  "scripts": {
+    "start": "node -r esm yuuto.js"
+  },
   "dependencies": {
-    "discord.js": "^12.0.1",
+    "discord.js": "^12.0.2",
     "dotenv": "^8.2.0",
-    "shelljs": "^0.8.3"
+    "esm": "^3.2.25"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
@@ -19,6 +22,5 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "prettier": "^1.19.1"
-  },
-  "type": "module"
+  }
 }

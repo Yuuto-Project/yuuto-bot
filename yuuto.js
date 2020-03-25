@@ -1,9 +1,7 @@
 // Requirement Files
 import dotenv from "dotenv";
 import { readdirSync, readFileSync } from "fs";
-import Discord from "discord.js";
-
-const { Client, Collection } = Discord; // outdated Discord.js node workaround
+import { Client, Collection } from "discord.js";
 
 dotenv.config(); // configures the environment variables
 
