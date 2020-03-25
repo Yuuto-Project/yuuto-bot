@@ -1,9 +1,11 @@
 // Requirement Files
 import dotenv from "dotenv";
-import { readdirSync, readFileSync } from "fs";
+import { readdirSync } from "fs";
 import { Client, Collection } from "discord.js";
 
 dotenv.config(); // configures the environment variables
+
+const prefix = process.env.PREFIX || "!";
 
 // Collections and Sets
 const yuuto = new Client();
@@ -29,9 +31,6 @@ yuuto.cooldowns = new Collection();
     }
   }
 })().catch(console.error);
-
-// Load the prefix | cannot import from json without node flag at the time of 13.9.0
-const { prefix } = JSON.parse(readFileSync("./config.json", "utf-8")) || "!";
 
 // Initialise the bot's startup
 yuuto.once("ready", () => {
