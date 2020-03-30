@@ -3,16 +3,17 @@
   "description": "Collaborative Yuuto bot of the Camp Buddy Fan Discord Server.",
   "license": "GPL-3.0",
   "version": "1.0.0",
-  "repository": "github:iamdeja/yuuto-bot",
+  "repository": "github:Yuuto-Project/yuuto-bot",
+  "type": "module",
   "scripts": {
-    "start": "node -r esm yuuto.js"
+    "start": "node --experimental-json-modules yuuto.js"
   },
   "dependencies": {
-    "discord.js": "^12.0.2",
-    "dotenv": "^8.2.0",
-    "esm": "^3.2.25"
+    "@yuuto-project/discord.js": "^12.1.1-yuuto-2",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.10.0",

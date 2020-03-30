@@ -1,5 +1,5 @@
-import { MessageEmbed } from "discord.js";
-import Command from "./base/Command";
+import { MessageEmbed } from "@yuuto-project/discord.js";
+import Command from "./base/Command.js";
 
 export default class Law extends Command {
   constructor() {

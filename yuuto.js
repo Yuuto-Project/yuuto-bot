@@ -1,7 +1,8 @@
 // Requirement Files
 import dotenv from "dotenv";
 import { readdirSync } from "fs";
-import { Client, Collection } from "discord.js";
+import { Client, Collection } from "@yuuto-project/discord.js";
+import Command from "./commands/base/Command.js";
 
 dotenv.config(); // configures the environment variables
 
@@ -22,6 +23,15 @@ yuuto.cooldowns = new Collection();
   for (const file of commandsFiles) {
     // eslint-disable-next-line no-await-in-loop
     const { default: CommandConstructor } = await import(`./commands/${file}`);
+
+    // Checks if we actually have a command here, we don't want to register classes that are not commands
+    if (!(CommandConstructor.prototype instanceof Command)) {
+      console.error(
+        `ERROR: command ${CommandConstructor.name} does not extend command base class, ignoring it`
+      );
+      continue;
+    }
+
     const command = new CommandConstructor();
 
     yuuto.commands.set(command.name, command);

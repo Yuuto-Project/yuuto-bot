@@ -1,7 +1,10 @@
 export default class Command {
   #name = null;
+
   #category = null;
+
   #description = null;
+
   #cooldown = 3;
 
   constructor(options) {
@@ -15,6 +18,7 @@ export default class Command {
     this.#cooldown = options.cooldown || 3;
   }
 
+  // eslint-disable-next-line no-unused-vars
   run(client, message, args) {
     throw new Error(`Run function not overwritten in ${this.constructor.name}`);
   }
