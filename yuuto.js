@@ -82,7 +82,7 @@ yuuto.on("message", async message => {
       message.reply(
         `please wait ${timeLeft.toFixed(
           1
-        )} more second(s) before reusing the \`{command.name}\` command.`
+        )} more second(s) before reusing the \`${command.name}\` command.`
       );
       return;
     }

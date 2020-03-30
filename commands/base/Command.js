@@ -2,6 +2,7 @@ export default class Command {
   #name = null;
   #category = null;
   #description = null;
+  #cooldown = 3;
 
   constructor(options) {
     if (!options.name || !options.category || !options.description) {
@@ -11,6 +12,7 @@ export default class Command {
     this.#name = options.name;
     this.#category = options.category;
     this.#description = options.description;
+    this.#cooldown = options.cooldown || 3;
   }
 
   run(client, message, args) {
@@ -27,5 +29,9 @@ export default class Command {
 
   get description() {
     return this.#description;
+  }
+
+  get cooldown() {
+    return this.#cooldown;
   }
 }

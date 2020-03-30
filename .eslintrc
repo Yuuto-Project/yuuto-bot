@@ -4,7 +4,7 @@
     "import/extensions": ["error", {
       "json": "always"
     }],
-    "class-methods-use-this": ["error", { "exceptMethods": ["run"] }],
+    "class-methods-use-this": "off",
     "no-console": "off",
     "no-dynamic-require": "off",
     "no-restricted-syntax": "off",
