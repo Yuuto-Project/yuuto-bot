@@ -3,8 +3,8 @@
  * https://github.com/JDA-Applications/JDA-Utilities/blob/master/commons/src/main/java/com/jagrosh/jdautilities/commons/utils/FinderUtil.java
  */
 
-import Discord from "discord.js";
-import { equalsIgnoreCase } from "./utils";
+import Discord from "@yuuto-project/discord.js";
+import { equalsIgnoreCase } from "./utils.js";
 
 // Regex constants to search
 export const DISCORD_ID = /\d{17,20}/; // user id

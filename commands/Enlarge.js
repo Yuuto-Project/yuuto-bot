@@ -1,5 +1,4 @@
-import { MessageAttachment } from "discord.js";
-import Command from "./base/Command";
+import Command from "./base/Command.js";
 import {
   EMOTE_ID_REGEX,
   EMOTE_IS_ANIMATED_REGEX

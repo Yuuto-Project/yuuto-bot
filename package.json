@@ -6,7 +6,9 @@
   "repository": "github:Yuuto-Project/yuuto-bot",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-json-modules yuuto.js"
+    "start": "node --experimental-json-modules yuuto.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@yuuto-project/discord.js": "^12.1.1-yuuto-2",

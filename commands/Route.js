@@ -1,15 +1,10 @@
-import Command from "./base/Command";
-import { MessageEmbed } from "discord.js";
+import { MessageEmbed } from "@yuuto-project/discord.js";
+import Command from "./base/Command.js";
 // Source: https://github.com/dunste123/hirobot/blob/master/routes.json
 import routes from "../assets/routes.json";
 
 export default class Route extends Command {
-  #endings = [
-    "perfect",
-    "good",
-    "bad",
-    "worst",
-  ];
+  #endings = ["perfect", "good", "bad", "worst"];
 
   constructor() {
     super({
@@ -25,7 +20,7 @@ export default class Route extends Command {
 
     embed.setAuthor(
       message.member.displayName,
-      message.author.displayAvatarURL({ format: "png"})
+      message.author.displayAvatarURL({ format: "png" })
       // "https://discord.gg/campbuddy"
     );
 

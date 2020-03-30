@@ -1,4 +1,5 @@
-import Discord from "discord.js";
+// eslint-disable-next-line no-unused-vars
+import Discord from "@yuuto-project/discord.js";
 
 /**
  * Helper method to make your code have a delay without having to nest
