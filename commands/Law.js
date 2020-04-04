@@ -6,7 +6,8 @@ export default class Law extends Command {
     super({
       name: "law",
       category: "info",
-      description: "States the buddy law."
+      description: "States the buddy law",
+      usage: `Run \`law\` to get the full buddy law, plus something extra.`
     });
   }
 

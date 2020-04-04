@@ -7,14 +7,25 @@ export default class Command {
 
   #cooldown = 3;
 
+  #aliases = null;
+
+  #usage = null;
+
   constructor(options) {
-    if (!options.name || !options.category || !options.description) {
+    if (
+      !options.name ||
+      !options.category ||
+      !options.description ||
+      !options.usage
+    ) {
       throw new Error("One of the configuration options is missing");
     }
 
     this.#name = options.name;
     this.#category = options.category;
     this.#description = options.description;
+    this.#usage = options.usage;
+    this.#aliases = options.aliases;
     this.#cooldown = options.cooldown || 3;
   }
 
@@ -37,5 +48,13 @@ export default class Command {
 
   get cooldown() {
     return this.#cooldown;
+  }
+
+  get aliases() {
+    return this.#aliases;
+  }
+
+  get usage() {
+    return this.#usage;
   }
 }

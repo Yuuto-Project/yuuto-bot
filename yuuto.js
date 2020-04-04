@@ -69,7 +69,11 @@ yuuto.on("message", async message => {
 
   // Find command or alias
   let command = yuuto.commands.get(cmd);
-  if (!command) command = yuuto.commands.get(yuuto.aliases.get(cmd));
+
+  if (!command && yuuto.aliases.has(cmd)) {
+    command = yuuto.commands.get(yuuto.aliases.get(cmd));
+  }
+
   // If we still didn't find a command, ignore it
   if (!command) return;
 

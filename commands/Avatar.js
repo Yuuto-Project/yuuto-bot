@@ -6,7 +6,10 @@ export default class Avatar extends Command {
     super({
       name: "avatar",
       category: "util",
-      description: "Returns the avatar of the requested user"
+      description: "Returns the avatar of the requested user",
+      aliases: ["pfp"],
+      usage:
+        "Run `avatar <token>` to get a high-resolution URL to the user's PFP. `<token>` can be a username, nickname, or tag."
     });
   }
 

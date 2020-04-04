@@ -13,7 +13,14 @@ export default class Cvt extends Command {
     super({
       name: "cvt",
       category: "util",
-      description: "Helps converting stuff"
+      description: "Helps converting stuff",
+      aliases: ["convert"],
+      usage: `Run \`cvt <target unit> <value><origin unit>\` to convert \`<value>\` from \`<origin unit>\` to \`<target unit>\`.\nTemperature units to convert to are \`${TEMPS.join(
+        ", "
+      )}\` from those values.
+Height units to convert to are \`${LENGTHS.join(
+        ", "
+      )}\` from those same values as well.`.trim()
     });
   }
 

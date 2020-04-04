@@ -5,7 +5,8 @@ export default class Ping extends Command {
     super({
       name: "ping",
       category: "info",
-      description: "Returns latency and API ping"
+      description: "Returns latency and API ping",
+      usage: `Run \`ping\` to get the current latency and API ping.`
     });
   }
 

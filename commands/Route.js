@@ -11,6 +11,7 @@ export default class Route extends Command {
       name: "route",
       category: "info",
       description: "Tells you what route to play next",
+      usage: `Run \`route\` to get which route you want to play next.`,
       cooldown: 5
     });
   }

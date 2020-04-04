@@ -8,8 +8,9 @@ export default class Enlarge extends Command {
   constructor() {
     super({
       name: "enlarge",
-      category: "tool",
-      description: "Returns an enlarged emote"
+      category: "util",
+      description: "Returns an enlarged emote",
+      usage: `Run \`enlarge <emote>\` to get the full link to \`<emote>\` at a large size.`
     });
   }
 
