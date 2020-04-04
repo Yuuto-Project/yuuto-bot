@@ -6,7 +6,7 @@ import Command from "./commands/base/Command.js";
 
 dotenv.config(); // configures the environment variables
 
-const prefix = process.env.PREFIX || "!";
+export const prefix = process.env.PREFIX || "!";
 
 // Collections and Sets
 const yuuto = new Client();
