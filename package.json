@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "convert-length": "^1.0.1",
-    "@yuuto-project/discord.js": "^12.1.1-yuuto-2",
+    "@yuuto-project/discord.js": "^12.1.1-yuuto-5",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
