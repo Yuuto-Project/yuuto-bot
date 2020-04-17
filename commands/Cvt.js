@@ -2,7 +2,7 @@ import convert from "convert-length";
 import { prefix } from "../yuuto.js";
 import Command from "./base/Command.js";
 
-const INPUT_PATTERN = /(-?\d+)(\D{1,2})/;
+const INPUT_PATTERN = /(-?[\d.]+)(\D{1,2})/;
 const LENGTHS = ["mm", "cm", "m", "pc", "pt", "in", "ft", "px"];
 const TEMPS = ["c", "f", "k"];
 const VALID_UNITS = [...TEMPS, ...LENGTHS];

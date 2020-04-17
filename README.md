@@ -75,6 +75,16 @@ _BeachBall_ is the official development bot that runs the code in the _develop_ 
 
 For _feature_ branches, each camper / developer is welcome and encouraged to add their own testing bot to the server and using it in conjunction with the feature-testing channels to develop it. This lightens the load on BeachBall and gives you more control of the bot such as viewing console logs or starting it up / shutting it down.
 
+#### Intents
+
+Because Yuuto is using the `GUILD_MEMBERS` gateway intent from discord you must enable this in your developer portal.
+
+To enable this you have to follow the following steps:
+1. Go to https://discordapp.com/developers/applications and select the application that you want to run the code on.
+2. Click on the application and select "Bot" on the left side.
+3. When you are on the bot page scroll down to "Privileged Gateway Intents" and enable "SERVER MEMBERS INTENT".
+4. Press the save button and you are good to go to run Yuuto.
+
 ### Channels
 
 The development server is split into different categories, which are:

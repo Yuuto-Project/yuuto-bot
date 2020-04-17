@@ -9,7 +9,19 @@ dotenv.config(); // configures the environment variables
 export const prefix = process.env.PREFIX || "!";
 
 // Collections and Sets
-const yuuto = new Client();
+const yuuto = new Client({
+  ws: {
+    // Read more https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS
+    intents: [
+      "GUILDS",
+      "GUILD_MEMBERS",
+      "GUILD_MESSAGES",
+      "GUILD_MESSAGE_REACTIONS"
+    ]
+  },
+  // We need to fetch all members to make sure that finderUtil works properly
+  fetchAllMembers: true
+});
 yuuto.commands = new Collection();
 yuuto.aliases = new Collection();
 yuuto.cooldowns = new Collection();
@@ -58,6 +70,7 @@ yuuto.once("ready", () => {
 yuuto.on("message", async message => {
   if (message.author.bot || !message.guild) return;
   if (!message.content.startsWith(prefix)) return;
+  if (process.env.BOTCMDS && message.channel.id !== process.env.BOTCMDS) return; // bot channel check
 
   // Get the command name. or return
   const args = message.content
