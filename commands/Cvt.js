@@ -59,7 +59,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
     if (!VALID_UNITS.includes(targetUnit)) {
       channel
         .send(
-          `<a:ConnorShake:588014274555936788> Valid units are \`${VALID_UNITS.join(
+          `<a:ConnorShake:701311285316550656> Valid units are \`${VALID_UNITS.join(
             ", "
           )}\`.`
         )
@@ -72,7 +72,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
     if (!INPUT_PATTERN.test(input)) {
       channel
         .send(
-          `<:NatsumiThink:512731583917064192> Not sure what you mean by \`${input}\`.`
+          `<:NatsumiThink:701311512714805279> Not sure what you mean by \`${input}\`.`
         )
         .then(m => m.delete(deleteOpts));
       return;
@@ -87,7 +87,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
     if (!this.areCompatible(targetUnit, sourceUnit)) {
       channel
         .send(
-          "<:YoichiLOL:586763664846094336> I wish that that was possible as well mate."
+          "<:YoichiLOL:701312070880329800> I wish that that was possible as well mate."
         )
         .then(m => m.delete(deleteOpts));
       return;
@@ -106,7 +106,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
 
         channel
           .send(
-            `<:HiroOhGod:514698065794564099> Temperatures that ${highLow} are not possible.`
+            `<:HiroOhGod:701312362401103902> Temperatures that ${highLow} are not possible.`
           )
           .then(m => m.delete(deleteOpts));
         return;
@@ -118,7 +118,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
     if (Number.isNaN(converted)) {
       channel
         .send(
-          "<:LeeWow:593058284945145867> Those numbers are way too sizably voluminous to calculate."
+          "<:LeeWow:701312559894233169> Those numbers are way too sizably voluminous to calculate."
         )
         .then(m => m.delete(deleteOpts));
       return;
@@ -128,7 +128,7 @@ The syntax is \`${prefix}cvt <unit-to-convert-to> <value>\``.trim()
 
     channel
       .send(
-        `<:LeeCute:586763383806754816> According to my calculations, \`${this.formatNum(
+        `<:LeeCute:701312766115315733> According to my calculations, \`${this.formatNum(
           sourceValue
         )}${this.unitToDisplay(
           sourceUnit
