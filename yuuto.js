@@ -58,13 +58,23 @@ yuuto.cooldowns = new Collection();
 yuuto.once("ready", () => {
   console.log(`Hi, ${yuuto.user.username} is now online!`);
 
-  yuuto.user.setPresence({
-    status: "online",
-    activity: {
-      name: "volleyball",
-      type: "PLAYING"
-    }
-  });
+  const presenceFn = () => {
+    console.debug("Setting presence");
+
+    yuuto.user.setPresence({
+      status: "online",
+      activity: {
+        name: "volleyball",
+        type: "PLAYING"
+      }
+    });
+  };
+
+  // This math stuff is one hour in milliseconds
+  // This interval makes sure that Yuuto keeps playing his games
+  setInterval(presenceFn, 1000 * 60 * 60);
+
+  presenceFn();
 });
 
 yuuto.on("message", async message => {
