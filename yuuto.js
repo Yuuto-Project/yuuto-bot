@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { readdirSync } from "fs";
 import { Client, Collection } from "@yuuto-project/discord.js";
 import Command from "./commands/base/Command.js";
+import "./settings/axiosSettings.js";
 
 dotenv.config(); // configures the environment variables
 

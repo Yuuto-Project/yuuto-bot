@@ -6,8 +6,9 @@
 node_modules/
 package-lock.json
 
-# Other
+# Sensitive data
 .env
+riggedShips.json
 
 # Yarn
 yarn.lock

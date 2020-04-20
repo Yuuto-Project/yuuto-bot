@@ -37,3 +37,24 @@ export function sendTyping(channel) {
 export function equalsIgnoreCase(str1, str2) {
   return str1.toUpperCase() === str2.toUpperCase();
 }
+
+/**
+ * Escapes all markdown characters from a username
+ *
+ * @param user {Discord.GuildMember|Discord.User} the member to get the escaped name from
+ * @returns {string} The escaped username
+ */
+export function escapeUsername(user) {
+  let name;
+
+  // Allow both a user and a member to be inserted
+  if (user instanceof Discord.GuildMember) {
+    name = user.displayName;
+  } else if (user instanceof Discord.User) {
+    name = user.username;
+  } else {
+    throw new Error("User must be a member or a user.");
+  }
+
+  return name.replace(/[`*_~>]/g, "\\$&");
+}

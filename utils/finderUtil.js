@@ -20,12 +20,12 @@ export const USER_MENTION = /<@!?(\d{17,20})>/; // $1 -> ID
  * @returns {Discord.User[]}
  */
 export function findUsers(query, client) {
-  if (!client || !(client instanceof Discord.Client)) {
-    throw new Error("client argument is required");
+  if (!(client instanceof Discord.Client)) {
+    throw new Error("Client argument is not a discord client");
   }
 
   // eslint-disable-next-line no-use-before-define
-  return genericCacheSearch(query, client.users);
+  return genericUserCacheSearch(query, client.users);
 }
 
 /**
@@ -36,23 +36,23 @@ export function findUsers(query, client) {
  * @returns {Discord.GuildMember[]}
  */
 export function findMembers(query, guild) {
-  if (!guild || !(guild instanceof Discord.Guild)) {
-    throw new Error("guild argument is required");
+  if (!(guild instanceof Discord.Guild)) {
+    throw new Error("Guild parameter is not a discord guild");
   }
 
   // eslint-disable-next-line no-use-before-define
-  return genericCacheSearch(query, guild.members, "displayName");
+  return genericUserCacheSearch(query, guild.members, "displayName");
 }
 
 /**
- * base logic for searching in the discord.js cache
+ * base logic for searching in the discord.js user or member cache
  *
  * @param query {string}
  * @param resolver {Discord.BaseManager}
  * @param nameKey {string} - The key under which the name of the entity is found
  * @returns {Discord.GuildMember[]|Discord.User[]}
  */
-function genericCacheSearch(query, resolver, nameKey = "username") {
+function genericUserCacheSearch(query, resolver, nameKey = "username") {
   if (!query) {
     return [];
   }
@@ -94,8 +94,7 @@ function genericCacheSearch(query, resolver, nameKey = "username") {
   const contains = [];
   const lowerQuery = query.toLowerCase();
 
-  for (const entry of resolver.cache) {
-    const user = entry[1];
+  for (const [, user] of resolver.cache) {
     const { username } = user.user || user;
     const name = user[nameKey];
 
@@ -121,21 +120,5 @@ function genericCacheSearch(query, resolver, nameKey = "username") {
     }
   }
 
-  if (exactMatch.length) {
-    return exactMatch;
-  }
-
-  if (wrongCase.length) {
-    return wrongCase;
-  }
-
-  if (startsWith.length) {
-    return startsWith;
-  }
-
-  if (contains.length) {
-    return contains;
-  }
-
-  return [];
+  return [...exactMatch, ...wrongCase, ...startsWith, ...contains];
 }
