@@ -44,11 +44,11 @@ const characters = [
   "yuuto"
 ];
 
+const backgroundString = backgrounds.join("`, `");
+const charactersString = characters.join("`, `");
+
 export default class Dialog extends Command {
   constructor() {
-    const backgroundString = backgrounds.join("`, `");
-    const charactersString = characters.join("`, `");
-
     super({
       name: "dialog",
       category: "fun",
@@ -67,7 +67,7 @@ export default class Dialog extends Command {
 
     if (args.length < 2) {
       channel.send(
-        "Sorry, but you need to provide the character and the message."
+        "This command requires two arguments : `dialog [background] <character> <text>` ([] is optional)"
       );
       return;
     }
@@ -84,14 +84,14 @@ export default class Dialog extends Command {
 
     if (!backgrounds.includes(background)) {
       channel.send(
-        `Sorry, but I couldn't find \`${background}\` as a location`
+        `Sorry, but I couldn't find \`${background}\` as a location\nAvailable backgrounds are : \`${backgroundString}\``
       );
       return;
     }
 
     if (!characters.includes(character)) {
       channel.send(
-        `Sorry, but I don't think that \`${character}\` is a character in Camp Buddy`
+        `Sorry, but I don't think that \`${character}\` is a character in Camp Buddy\nAvailable characters are : \`${charactersString}\``
       );
       return;
     }
