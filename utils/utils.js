@@ -39,6 +39,23 @@ export function equalsIgnoreCase(str1, str2) {
 }
 
 /**
+ * Returns a shuffled COPY of arr using modern Fisher-Yates algorithm.
+ *
+ * @param arr {Array<int>}
+ * @returns {Array<int>}
+ */
+export function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+}
+
+/**
  * Escapes all markdown characters from a username
  *
  * @param user {Discord.GuildMember|Discord.User} the member to get the escaped name from
