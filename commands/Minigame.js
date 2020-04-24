@@ -18,7 +18,7 @@ const State = Object.freeze({
 // "FILL", "MULTIPLE"
 
 export default class Minigame extends Command {
-  #state;
+  #state = State.OFF;
 
   #players;
 
@@ -180,7 +180,7 @@ export default class Minigame extends Command {
       const questionString = `${this.#currentQuestion.question}\n`;
 
       const answersString = shuffle(
-        this.#currentQuestion.wrong.concat(this.currentQuestion.answers)
+        this.#currentQuestion.wrong.concat(this.#currentQuestion.answers)
       )
         .map((answer, i) => {
           if (this.#answers.includes(answer.toLowerCase()))
