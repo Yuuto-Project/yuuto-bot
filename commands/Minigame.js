@@ -85,6 +85,7 @@ export default class Minigame extends Command {
     this.initialize();
 
     client.on("messageReactionAdd", this.reactionRecv, this);
+    client.on("messageReactionRemove", this.reactionRetr, this);
     client.on("message", this.messageRecv, this);
 
     //
@@ -117,7 +118,7 @@ export default class Minigame extends Command {
     if (this.#players.size === 0) {
       embed.setTitle("Minigame cancelled!").setDescription(`Nobody joined...`);
       this.#startingMessage.edit(embed);
-      this.clean();
+      this.clean(client);
       return;
     }
 
@@ -126,6 +127,10 @@ export default class Minigame extends Command {
 
     this.#state = State.IN_PROGRESS;
     this.progress(client);
+  }
+
+  reactionRetr(reaction, user) {
+    if (this.#state === State.STARTING) this.#players.delete(user);
   }
 
   reactionRecv(reaction, user) {
@@ -206,6 +211,7 @@ export default class Minigame extends Command {
 
   clean(client) {
     client.off("messageReactionAdd", this.reactionRecv, this);
+    client.off("messageReactionRemove", this.reactionRetr, this);
     client.off("message", this.messageRecv, this);
 
     this.#state = State.OFF;
