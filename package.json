@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "@yuuto-project/discord.js": "^12.1.1-yuuto-9",
-    "axios": "^0.19.2",
     "convert-length": "^1.0.1",
+    "owoify-js": "^1.0.7",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
