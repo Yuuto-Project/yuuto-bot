@@ -31,6 +31,6 @@ export default class Enlarge extends Command {
     const emoteLink = `https://cdn.discordapp.com/emojis/${emoteId}${emoteFormat}`;
 
     // Sends the emote link as an attachment
-    message.channel.send(emoteLink);
+    message.reply(`here you go~!\n${emoteLink}`);
   }
 }

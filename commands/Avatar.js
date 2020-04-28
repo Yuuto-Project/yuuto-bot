@@ -42,7 +42,12 @@ export default class Avatar extends Command {
       format: "png",
       size: 2048
     });
+
     // Sends it back to the user
-    message.channel.send(`Here is the avatar for ${user.tag}\n${avatarURL}`);
+    if (member === message.author) {
+      message.reply(`here's your avatar~!\n${avatarURL}`);
+    } else {
+      message.reply(`here's the avatar for ${user.tag}\n${avatarURL}`);
+    }
   }
 }
