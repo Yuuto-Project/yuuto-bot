@@ -23,10 +23,18 @@ export default class Info extends Command {
       .setDescription(
         "Yuuto was made and developed by the community, for the community. \n" +
           "Join the dev team and start developing on the [project website](https://iamdeja.github.io/yuuto-docs/). \n\n" +
-          "Version 1.0 was made and developed by: \n" +
-          "**Arch#0226**, **Dé-Jà-Vu#1004**, **dunste123#0129**, **zsotroav#8941**"
+          "Version 2.0 was made and developed by: \n" +
+          "**Arch#0226**, **dunste123#0129**, **Tai Chi#4634**, **zsotroav#8941** \n \n" +
+          "Quick Change log: \n" +
+          "```diff\n" +
+          "+ Added dialog maker \n" +
+          "+ Added minigame with the first question pack. \n" +
+          "+ Added ship command \n" +
+          "+ Added character info (char) command \n" +
+          "+ Added owoify (owo) command \n" +
+          "+ Fixed Yuuto's playing status disappearing. \n```"
       )
-      .setFooter("Yuuto Bot: Release 1.0 | 2020-04-12");
+      .setFooter("Yuuto Bot: Release 2.0 | 2020-05-03");
 
     message.channel.send(embed);
   }
