@@ -101,8 +101,11 @@ export default class Dialog extends Command {
       return;
     }
 
-    // Gets the message by getting the rest of the args
-    const text = args.join(" ");
+    const text = args
+      // Gets the message by getting the rest of the args
+      .join(" ")
+      // Replace left apostrophe and right apostrophe with apostrophe
+      .replace(/[‘’]/g, "'");
 
     // Check if message is more than 120 chars
     if (text.length > 120) {
