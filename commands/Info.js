@@ -34,7 +34,7 @@ export default class Info extends Command {
           "+ Added owoify (owo) command \n" +
           "+ Fixed Yuuto's playing status disappearing. \n```"
       )
-      .setFooter("Yuuto Bot: Release 2.0 | 2020-05-03");
+      .setFooter("Yuuto Bot: Release 2.0 | 2020-05-04");
 
     message.channel.send(embed);
   }
