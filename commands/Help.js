@@ -41,7 +41,7 @@ export default class Help extends Command {
         command.name
       }\`\n${command.usage}${
         command.aliases && command.aliases.length
-          ? `\n**Aliases:** \`${command.aliases}\``
+          ? `\n**Aliases:** \`${command.aliases.join(", ")}\``
           : ""
       }`
     );
